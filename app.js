@@ -1,11 +1,17 @@
 myDatabase = firebase.database()
 // var user = ''
+loaderrem = ()=>{
+  document.getElementById('loader-wrapper').remove();
+}
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById('container').style.display = 'flex'
         document.getElementById('loginForm').style.display = 'none'
-        readChats()        
+        readChats() 
+        setTimeout(function(){ loaderrem(); }, 3000);
+               
     } else {
+      loaderrem()
         // document.getElementById('chat').style.display = 'none'
         document.getElementById('loginForm').style.display = 'flex'
         // document.getElementById('container').style.display = 'none'

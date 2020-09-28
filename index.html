@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://www.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Chat-2-512.png" type="image/ico" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyD9J7V5LYLekA4etp8YvHrof9y-erdQb7M",
+          authDomain: "chatappbymuaz.firebaseapp.com",
+          databaseURL: "https://chatappbymuaz.firebaseio.com",
+          projectId: "chatappbymuaz",
+          storageBucket: "chatappbymuaz.appspot.com",
+          messagingSenderId: "184073066973",
+          appId: "1:184073066973:web:29549b2837abdb8ee53e34",
+          measurementId: "G-DX3PHWRZYS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+    <title>Chat</title>
+</head>
+<body onload="">
+    <div class="loginForm" id="loginForm">
+        <h3>Sign In / Sign Up</h3>
+        <button class="fbLogin" id="fbLogin" onclick="fbLogin()"><i class="fab fa-facebook-f"></i>Continue with Facebook</button>
+    </div>
+
+    <div class="container" id="container">
+        <section class="contacts" id="contacts">
+            <div class="userData" id="userData">
+                <img src="" id="userAvatar" alt="user Avatar" title="User Image">
+                <h3 class="userName" id="userName" title="Current User"></h3>
+                <div class="chatIcon" id="chatIcon" title="Start chat with registered users" onclick="getUsers()"><i class="far fa-comment-alt"></i></div>
+                <div id="dot-menu" title="" onclick="menuPop()">
+                  <i class="fas fa-ellipsis-v" title="Menu" style="position: fixed;"></i>  
+                </div>
+                
+            </div>
+            <div class="search" id="search">
+                <input class="searchBar" id="searchBar" placeholder="Search here">
+            </div>
+            <div class="chat-head" id="chat-head"></div>
+        </section>
+        <section class="chat" id="chat">
+                <div class="sendUserInfo" id="sendUserInfo">
+                    <img src="" id="sendUserAvatar" alt="user Avatar" title="User Image">
+                    <h3 class="sendUserName" id="sendUserName"></h3>
+                    <div id="dot-menu2" title="" onclick="">
+                        <i class="fas fa-ellipsis-v" title="Menu"></i>  
+                      </div>
+                </div>
+                <div class="showMessage" id="showMessage"></div>
+                <div class="sendmessage" id="sendMessage">
+                    <!-- <div id="emoji" title="Emoji" onclick=""> -->
+                        <i class="far fa-smile" title="Emoji" id="emoji"></i>  
+                      <!-- </div> -->
+                    <input class="sendMsgInput" id="sendMsgInput" placeholder="Type a message" oninput="sendIcon()" onfocusout="paperIcon()">
+                    <i class="fas fa-paperclip" title="Attach" id="paper-clip"></i>
+                </div>
+        </section>
+    </div>
+
+
+    
+    <script src="app.js"></script>
+</body>
+</html>

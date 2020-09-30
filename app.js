@@ -1,5 +1,13 @@
 myDatabase = firebase.database()
 // var user = ''
+
+const mediaQuery = window.matchMedia('(max-width: 550px)')
+if(mediaQuery.matches){
+  document.getElementById('contacts').style.width = '100%'
+  document.getElementById('chat').style.display = 'none'
+  document.getElementById('sendUserInfo').style.justifyContent = 'center'
+}
+
 loaderrem = ()=>{
   document.getElementById('loader-wrapper').remove();
 }
@@ -203,6 +211,11 @@ startChat = (a)=>{
 
 
 goToChat = (a)=>{
+  if(mediaQuery.matches){
+    document.getElementById('contacts').style.display = 'none'
+    document.getElementById('chat').style.width = '100%'
+    document.getElementById('chat').style.display = 'initial'
+  }
   sendMsgInput = document.getElementById('sendMsgInput')
   sendMsgInput.focus()
   sendUserAvatar = document.getElementById('sendUserAvatar')
@@ -213,8 +226,13 @@ goToChat = (a)=>{
   userName.style.display = 'inherit'
   dotmenu = document.getElementById('dot-menu2')
   dotmenu.style.display = 'inherit'
+  
 }
-
+goBack = ()=>{
+  document.getElementById('contacts').style.width = '100%'
+  document.getElementById('chat').style.display = 'none'
+  document.getElementById('contacts').style.display = 'initial'
+}
 
 sendIcon = ()=>{
   document.getElementById('paper-clip').setAttribute('class','far fa-paper-plane')
